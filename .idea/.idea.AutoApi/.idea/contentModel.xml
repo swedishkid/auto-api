@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="AutoApi" t="IncludeRecursive">
+        <e p="AutoApi.csproj" t="IncludeRecursive" />
+        <e p="BackgroundJobAttribute.cs" t="Include" />
+        <e p="BackgroundServiceAttribute.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DbContextAttribute.cs" t="Include" />
+        <e p="EntityAttribute.cs" t="Include" />
+        <e p="ExceptionTemplate.cs" t="Include" />
+        <e p="ExtractInterface.cs" t="Include" />
+        <e p="HealthCheckAttribute.cs" t="Include" />
+        <e p="HttpDeleteAttribute.cs" t="Include" />
+        <e p="HttpGetAttribute.cs" t="Include" />
+        <e p="HttpPatchAttribute.cs" t="Include" />
+        <e p="HttpPostAttribute.cs" t="Include" />
+        <e p="HttpPutAttribute.cs" t="Include" />
+        <e p="LoggerTemplateAttribute.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="AutoApi.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="RouteAttribute.cs" t="Include" />
+        <e p="TypedAppSettingsAttribute.cs" t="Include" />
+      </e>
+      <e p="AutoApi.Sample" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="AutoApi.Sample.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="IAutoApiDbContext.cs" t="Include" />
+          <e p="ICategory.cs" t="Include" />
+          <e p="IItem.cs" t="Include" />
+          <e p="ItemHandler.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="AutoApi.Sample.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="AutoApi.sln" t="IncludeFlat" />
+      <e p="AutoApi.SourceGenerator" t="IncludeRecursive">
+        <e p="AutoApi.SourceGenerator.csproj" t="IncludeRecursive" />
+        <e p="AutoApiSourceGenerator.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Generator.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="AutoApi.SourceGenerator.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Templates" t="Include">
+          <e p="AppsettingsTemplate.cs" t="Include" />
+          <e p="AppsettingsTemplate.tt" t="Include" />
+          <e p="CommandLineApplicationTemplate.cs" t="Include" />
+          <e p="CommandLineApplicationTemplate.tt" t="Include" />
+          <e p="ControllerTemplate.cs" t="Include" />
+          <e p="ControllerTemplate.tt" t="Include" />
+          <e p="DbContextTemplate.cs" t="Include" />
+          <e p="DbContextTemplate.tt" t="Include" />
+          <e p="EntityTemplate.cs" t="Include" />
+          <e p="EntityTemplate.tt" t="Include" />
+          <e p="EntityTypeConfigurationTemplate.cs" t="Include" />
+          <e p="EntityTypeConfigurationTemplate.tt" t="Include" />
+          <e p="FiltersTemplate.cs" t="Include" />
+          <e p="FiltersTemplate.tt" t="Include" />
+          <e p="LoggerTemplate.cs" t="Include" />
+          <e p="LoggerTemplate.tt" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="$PROJECT_DIR$/../Library/Caches/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$/../Library/Caches/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_AutoApi.-1270748862.00" t="ExcludeRecursive" />
+  </component>
+</project>
