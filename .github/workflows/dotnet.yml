@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore AutuApi.sln
+      run: dotnet restore AutoApi.sln
     - name: Build
-      run: dotnet build AutuApi.sln --no-restore
+      run: dotnet build AutoApi.sln --no-restore
     - name: Test
-      run: dotnet test AutuApi.sln --no-build --verbosity normal
+      run: dotnet test AutoApi.sln --no-build --verbosity normal
