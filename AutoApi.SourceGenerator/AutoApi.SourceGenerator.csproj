@@ -2,83 +2,65 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="Templates\EntityTypeConfigurationTemplate.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>EntityTypeConfigurationTemplate.tt</DependentUpon>
-      </Compile>
+      <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2" PrivateAssets="all" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0" PrivateAssets="all" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" GeneratePathProperty="true" PrivateAssets="all" />
+      <PackageReference Include="System.CodeDom" Version="5.0.0" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+    </PropertyGroup>
+
+    <Target Name="GetDependencyTargetPaths">
+        <ItemGroup>
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGNewtonsoft_Json)\lib\netstandard2.0\Newtonsoft.Json.dll" IncludeRuntimeDependency="false" />
+        </ItemGroup>
+    </Target>
+
+    <ItemGroup>
       <Compile Update="Templates\DbContextTemplate.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
         <DependentUpon>DbContextTemplate.tt</DependentUpon>
       </Compile>
-      <Compile Update="Templates\AppsettingsTemplate.cs">
+      <Compile Update="Templates\DomainEntityBuilderTemplate.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
-        <DependentUpon>AppsettingsTemplate.tt</DependentUpon>
+        <DependentUpon>DomainEntityBuilderTemplate.tt</DependentUpon>
       </Compile>
-      <Compile Update="Templates\CommandLineApplicationTemplate.cs">
+      <Compile Update="Templates\DomainEntityTemplate.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
-        <DependentUpon>CommandLineApplicationTemplate.tt</DependentUpon>
+        <DependentUpon>DomainEntityTemplate.tt</DependentUpon>
       </Compile>
-      <Compile Update="Templates\ControllerTemplate.cs">
+      <Compile Update="Templates\DomainFilterTemplate.cs">
         <AutoGen>True</AutoGen>
         <DesignTime>True</DesignTime>
-        <DependentUpon>ControllerTemplate.tt</DependentUpon>
-      </Compile>
-      <Compile Update="Templates\EntityTemplate.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>EntityTemplate.tt</DependentUpon>
-      </Compile>
-      <Compile Update="Templates\FiltersTemplate.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>FiltersTemplate.tt</DependentUpon>
-      </Compile>
-      <Compile Update="Templates\LoggerTemplate.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>LoggerTemplate.tt</DependentUpon>
+        <DependentUpon>DomainFilterTemplate.tt</DependentUpon>
       </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Templates\EntityTypeConfigurationTemplate.tt">
-        <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>EntityTypeConfigurationTemplate.cs</LastGenOutput>
-      </None>
       <None Update="Templates\DbContextTemplate.tt">
         <Generator>TextTemplatingFilePreprocessor</Generator>
         <LastGenOutput>DbContextTemplate.cs</LastGenOutput>
       </None>
-      <None Update="Templates\AppsettingsTemplate.tt">
+      <None Update="Templates\DomainEntityBuilderTemplate.tt">
         <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>AppsettingsTemplate.cs</LastGenOutput>
+        <LastGenOutput>DomainEntityBuilderTemplate.cs</LastGenOutput>
       </None>
-      <None Update="Templates\CommandLineApplicationTemplate.tt">
+      <None Update="Templates\DomainEntityTemplate.tt">
         <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>CommandLineApplicationTemplate.cs</LastGenOutput>
+        <LastGenOutput>DomainEntityTemplate.cs</LastGenOutput>
       </None>
-      <None Update="Templates\ControllerTemplate.tt">
+      <None Update="Templates\DomainFilterTemplate.tt">
         <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>ControllerTemplate.cs</LastGenOutput>
-      </None>
-      <None Update="Templates\EntityTemplate.tt">
-        <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>EntityTemplate.cs</LastGenOutput>
-      </None>
-      <None Update="Templates\FiltersTemplate.tt">
-        <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>FiltersTemplate.cs</LastGenOutput>
-      </None>
-      <None Update="Templates\LoggerTemplate.tt">
-        <Generator>TextTemplatingFilePreprocessor</Generator>
-        <LastGenOutput>LoggerTemplate.cs</LastGenOutput>
+        <LastGenOutput>DomainFilterTemplate.cs</LastGenOutput>
       </None>
     </ItemGroup>
 

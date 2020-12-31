@@ -1,0 +1,29 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;Assembly Path="/Users/kasper/.nuget/packages/microsoft.codeanalysis.common/3.8.0/lib/netcoreapp3.1/Microsoft.CodeAnalysis.dll" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/kasper/Library/Caches/JetBrains/Rider2020.3/resharper-host/temp/Rider/vAny/CoverageData/_AutoApi.-1270748862/Snapshot/snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=01bf63b4_002D645d_002D4b29_002D9372_002Dfd7ddf52badc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CanDetectAttributeWithUnnamedParameter" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::40B17C54-FAD6-4138-BCBC-A4F378F0590D::net5.0::AutoApi.SourceGenerator.Tests.MySyntaxReceiverTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::40B17C54-FAD6-4138-BCBC-A4F378F0590D::net5.0::AutoApi.SourceGenerator.Tests.MySourceGeneratorTests.TestInitialize&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0f672f69_002D82be_002D4a99_002Db25b_002D432ea48377f7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DetectFieldsOnClasses" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::40B17C54-FAD6-4138-BCBC-A4F378F0590D::net5.0::AutoApi.SourceGenerator.Tests.MySyntaxReceiverTests.DetectFieldsOnClasses&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2b962093_002D8a92_002D42b4_002Daa25_002De6dbb521caa8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CanDetectAttributeWithUnnamedParameter #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::40B17C54-FAD6-4138-BCBC-A4F378F0590D::net5.0::AutoApi.SourceGenerator.Tests.MySyntaxReceiverTests.CanDetectAttributeWithUnnamedParameter&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4fe492ba_002D38c3_002D4487_002D9694_002Dbfbaafe26949/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::40B17C54-FAD6-4138-BCBC-A4F378F0590D::net5.0::AutoApi.SourceGenerator.Tests.MySyntaxReceiverTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e68de99b_002D943b_002D4c61_002D97d9_002D2b489ce04ab6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestInitialize" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/kasper/AutoApi/AutoApi.SourceGenerator.Tests" Presentation="&amp;lt;AutoApi.SourceGenerator.Tests&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

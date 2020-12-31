@@ -1,23 +1,39 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
+using Microsoft.Extensions.DependencyInjection;
 namespace AutoApi.Sample
 {
-    public class Program
+    public static class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var builder = WebHost.CreateDefaultBuilder<Startup>(args);
+            var host = builder.Build();
+            host.Run();
+        }
+    }
+
+    public class Startup
+    {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+        public void ConfigureServices(IServiceCollection services)
+        {
+            
+        }
+
+        public void Configure(IApplicationBuilder app)
+        {
+            var router = new ItemsRouter();
+            router.Map(app);
+        }
     }
 }

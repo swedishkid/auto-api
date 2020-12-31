@@ -1,0 +1,149 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace <#= Namespace #> 
+{
+    public static class <#= DomainEntityName #>Filters
+    {
+<# foreach(var property in Properties) { #>
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>Equals(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+<# if(property.Type == "string") { #>
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>StartsWith(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>EndsWith(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>Contains(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+<# } #>
+<# if(property.Type == "int") { #>
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>Between(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>GreaterThan(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>LessThan(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>GreaterThanOrEquals(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>LessThanOrEquals(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+<# } #>
+<# if(property.Type == "long") { #>
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>Between(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>GreaterThan(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>LessThan(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>GreaterThanOrEquals(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>LessThanOrEquals(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+<# } #>
+<# if(property.Type == "short") { #>
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>StartsWith(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>EndsWith(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>Contains(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+<# } #>
+<# if(property.Type == "datetime") { #>
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>StartsWith(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>EndsWith(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+
+        public static IQueryable<<#= DomainEntityName #>> Where<#= DomainEntityName #>Contains(this IQueryable<<#= DomainEntityName #>> queryable, <#= property.Type #> value)
+        {
+            return queryable;
+        }
+<# } #>
+<# } #>
+    }
+}
+<#+
+    public string Namespace { get; set; }
+    
+    public string DomainEntityName { get; set; }
+    
+    public class Property
+    {
+        public string Field { get; set; }
+        
+        public string Name { get; set; }
+        
+        public string Type { get; set; }
+    }
+
+    public List<Property> Properties { get; } = new();
+
+    public void AddProperty(string field, string name, string type) => Properties.Add(new Property()
+    {
+        Name = name,
+        Field = field,
+        Type = type
+    });
+#>

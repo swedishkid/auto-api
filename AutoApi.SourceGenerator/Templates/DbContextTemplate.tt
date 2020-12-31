@@ -1,3 +1,36 @@
 <#@ template language="C#" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+
+using Microsoft.EntityFramework;
+
+namespace <#= Namespace #>
+{
+    public partial class <#= DbContextName #>DbContext : DbContext 
+    {
+        public <#= DbContextName #>DbContext(DbContextOptions<<#= DbContextName #>DbContext> options)
+            : base(options)
+        {
+        }
+ <# foreach(var dbSet in DbSets ) { #>
+        
+        public DbSet<<#= dbSet.Type#>> <#= dbSet.Name #> { get; set; }
+<# } #>
+    }
+}
+
+<#+
+
+    public class DbSet
+    {
+        public string Name { get; set; }
+        
+        public string Type { get; set; }
+    }
+
+    public List<DbSet> DbSets { get; } = new();
+    
+    public string Namespace { get; set; }
+    
+    public string DbContextName { get; set; }
+#>

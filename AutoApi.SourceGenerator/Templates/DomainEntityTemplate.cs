@@ -9,6 +9,7 @@
 // ------------------------------------------------------------------------------
 namespace AutoApi.SourceGenerator
 {
+    using System.Linq;
     using System.Text;
     using System.Collections.Generic;
     using System;
@@ -17,9 +18,9 @@ namespace AutoApi.SourceGenerator
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
+    #line 1 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class DbContextTemplate : DbContextTemplateBase
+    public partial class DomainEntityTemplate : DomainEntityTemplateBase
     {
 #line hidden
         /// <summary>
@@ -27,81 +28,96 @@ namespace AutoApi.SourceGenerator
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\nusing Microsoft.EntityFramework;\n\nnamespace ");
+            this.Write("using System;\nusing System.Collections.Generic;\nusing System.Linq;\n\nnamespace ");
             
-            #line 7 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
+            #line 9 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\n{\n    public partial class ");
             
-            #line 9 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DbContextName));
+            #line 11 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainEntityName));
             
             #line default
             #line hidden
-            this.Write("DbContext : DbContext \n    {\n        public ");
+            this.Write(" \n    {\n        private ");
             
-            #line 11 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DbContextName));
-            
-            #line default
-            #line hidden
-            this.Write("DbContext(DbContextOptions<");
-            
-            #line 11 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DbContextName));
+            #line 13 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainEntityName));
             
             #line default
             #line hidden
-            this.Write("DbContext> options)\n            : base(options)\n        {\n        }\n ");
+            this.Write("()\n        {\n            // Used for ef to create proxy class.\n        }\n\n");
             
-            #line 15 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
- foreach(var dbSet in DbSets ) { 
-            
-            #line default
-            #line hidden
-            this.Write("        \n        public DbSet<");
-            
-            #line 17 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(dbSet.Type));
+            #line 18 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+ foreach(var property in Properties) { 
             
             #line default
             #line hidden
-            this.Write("> ");
+            this.Write("        private string ");
             
-            #line 17 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(dbSet.Name));
-            
-            #line default
-            #line hidden
-            this.Write(" { get; set; }\n");
-            
-            #line 18 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
- } 
+            #line 19 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Field));
             
             #line default
             #line hidden
-            this.Write("    }\n}\n\n");
+            this.Write(";\n\n        public string ");
+            
+            #line 21 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\n        {    \n            get => ");
+            
+            #line 23 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Field));
+            
+            #line default
+            #line hidden
+            this.Write(";\n            private set => ");
+            
+            #line 24 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(property.Field));
+            
+            #line default
+            #line hidden
+            this.Write(" = value;\n        }\n");
+            
+            #line 26 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
+ }
+            
+            #line default
+            #line hidden
+            this.Write("    }\n}\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 22 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DbContextTemplate.tt"
+        #line 29 "/Users/kasper/AutoApi/AutoApi.SourceGenerator/DomainEntityTemplate.tt"
 
-
-    public class DbSet
+    public class Property
     {
+        public string Field { get; set; }
+        
         public string Name { get; set; }
         
         public string Type { get; set; }
     }
 
-    public List<DbSet> DbSets { get; } = new();
+    public List<Property> Properties { get; } = new();
+
+    public void AddProperty(string field, string name, string type) => Properties.Add(new Property()
+    {
+        Name = name,
+        Field = field,
+        Type = type
+    });
     
     public string Namespace { get; set; }
     
-    public string DbContextName { get; set; }
+    public object DomainEntityName { get; set; }
 
         
         #line default
@@ -115,7 +131,7 @@ namespace AutoApi.SourceGenerator
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public class DbContextTemplateBase
+    public class DomainEntityTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

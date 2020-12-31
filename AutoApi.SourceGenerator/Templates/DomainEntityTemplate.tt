@@ -1,0 +1,51 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace <#= Namespace #>
+{
+    public partial class <#= DomainEntityName #> 
+    {
+        private <#= DomainEntityName #>()
+        {
+            // Used for ef to create proxy class.
+        }
+
+<# foreach(var property in Properties) { #>
+        private string <#= property.Field #>;
+
+        public string <#= property.Name #>
+        {    
+            get => <#= property.Field #>;
+            private set => <#= property.Field #> = value;
+        }
+<# }#>
+    }
+}
+<#+
+    public class Property
+    {
+        public string Field { get; set; }
+        
+        public string Name { get; set; }
+        
+        public string Type { get; set; }
+    }
+
+    public List<Property> Properties { get; } = new();
+
+    public void AddProperty(string field, string name, string type) => Properties.Add(new Property()
+    {
+        Name = name,
+        Field = field,
+        Type = type
+    });
+    
+    public string Namespace { get; set; }
+    
+    public object DomainEntityName { get; set; }
+#>

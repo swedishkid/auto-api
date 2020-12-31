@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>AutoApi</RootNamespace>
+        <AssemblyName>AutoApi</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="*.sp.json" CsvLoadType="Startup" />
+    </ItemGroup>
+
+</Project>
