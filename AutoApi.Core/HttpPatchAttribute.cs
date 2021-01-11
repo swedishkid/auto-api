@@ -10,7 +10,7 @@ namespace AutoApi
             RouteTemplate = routeTemplate ?? throw new ArgumentNullException(nameof(routeTemplate));
         }
         
-        public HttpMethod HttpMethod => HttpMethod.Patch;
+        public HttpMethod HttpMethod => new HttpMethod("PATCH");
         
         public string RouteTemplate { get; }
     }

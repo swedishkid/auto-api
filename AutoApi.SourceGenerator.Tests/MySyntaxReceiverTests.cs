@@ -126,6 +126,33 @@ public class CustomClassName
             Equal("CustomPropertyName", firstProperty.PropertyName);
             Equal("string", firstProperty.PropertyType);
         }
+        
+        [Fact]
+        public void DetectMethodsOnClass()
+        {
+            var source = @"
+public class CustomClassName
+{
+    public string TestMethod(string name) 
+    {
+        throw new NotImplementedException();
+    }
+}
+";
+            var receiver = ReceiveMember(source);
+
+            Single(receiver.Classes);
+            var firstClass = receiver.Classes.First();
+            NotNull(firstClass);
+            Equal("CustomClassName", firstClass.ClassName);
+            NotNull(firstClass.Methods);
+            Single(firstClass.Methods);
+
+            var firstMethod = firstClass.Methods.First();
+            NotNull(firstMethod);
+            Equal("TestMethod", firstMethod.MethodName);
+            Equal("string", firstMethod.ReturnTypeString);
+        }
 
         [Fact]
         public void DetectClassesWithoutAttributes()
@@ -222,7 +249,56 @@ public class CustomClassName
             Equal("fieldName", firstField.FieldName);
             Equal("string", firstField.FieldType);
         }
-
+        
+        [Fact]
+        public void DetectParametersOnMethodsInClasses()
+        {
+            var source = @"
+public class CustomClassName 
+{
+    public string TestMethod(string name)
+    {
+        
+    }
+}
+";
+            var receiver = ReceiveMember(source);
+            NotNull(receiver.Classes);
+            Single(receiver.Classes);
+            var firstClass = receiver.Classes.First();
+            NotNull(firstClass.Methods);
+            Single(firstClass.Methods);
+            var firstMethod = firstClass.Methods.First();
+            NotNull(firstMethod);
+            Equal("TestMethod", firstMethod.MethodName);
+            Equal("string", firstMethod.ReturnTypeString);
+            NotNull(firstMethod.Parameters);
+            Single(firstMethod.Parameters);
+            var firstParameter = firstMethod.Parameters.First();
+            NotNull(firstParameter);
+            Equal("name", firstParameter.ParameterName);
+            Equal("string", firstParameter.ParameterType);
+        }
+        
+        [Fact]
+        public void DetectConstructorsInClasses()
+        {
+            var source = @"
+public class CustomClassName 
+{
+    public CustomClassName(string name)
+    {
+    }
+}
+";
+            var receiver = ReceiveMember(source);
+            NotNull(receiver.Classes);
+            Single(receiver.Classes);
+            var firstClass = receiver.Classes.First();
+            NotNull(firstClass.Constructors);
+            Single(firstClass.Constructors);
+        }
+        
         private MySyntaxReceiver ReceiveMember(string source)
         {
             var node = MemberFromSource(source);

@@ -1,0 +1,12 @@
+Name[0] = HttpGetAttribute
+Name[1] = HttpPostAttribute
+Name[2] = HttpPatchAttribute
+Name[3] = HttpPutAttribute
+Name[4] = HttpDeleteAttribute
+Name[5] = RouteAttribute
+Name[6] = HttpGet
+Name[7] = HttpPost
+Name[8] = HttpPatch
+Name[9] = HttpPut
+Name[10] = HttpDelete
+Name[11] = Route

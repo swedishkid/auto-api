@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using AutoApi.Generated;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,8 +33,6 @@ namespace AutoApi.Sample
 
         public void Configure(IApplicationBuilder app)
         {
-            var router = new ItemsRouter();
-            router.Map(app);
         }
     }
 }

@@ -1,22 +1,20 @@
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AutoApi.Sample
 {
-    public class ItemsRouter
+    public class ItemsRouterWrapper
     {
-        public void Map(IApplicationBuilder app)
+        public void Map(Microsoft.AspNetCore.Builder.IApplicationBuilder app)
         {
-            var routeBuilder = new RouteBuilder(app);
-            routeBuilder.MapGet("items", MapGetItems);
+            var routeBuilder = new Microsoft.AspNetCore.Routing.RouteBuilder(app);
+            Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet(routeBuilder, "items", MapGetItems);
             var router = routeBuilder.Build();
-            app.UseRouter(router);
+            Microsoft.AspNetCore.Builder.RoutingBuilderExtensions.UseRouter(app, router);
         }
-
+        
         private async Task MapGetItems(HttpContext context)
         {
             var service_context = context.RequestServices.GetRequiredService<ItemsDbContext>();

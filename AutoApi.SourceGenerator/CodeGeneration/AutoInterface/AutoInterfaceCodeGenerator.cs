@@ -1,10 +1,10 @@
 namespace AutoApi.SourceGenerator.CodeGeneration
 {
-    public class ApiCodeGenerator : ICodeGenerator
-
+    public class AutoInterfaceCodeGenerator : ICodeGenerator
     {
         public void GenerateCode(CodeGenerationContext context)
         {
+        
         }
     }
 }

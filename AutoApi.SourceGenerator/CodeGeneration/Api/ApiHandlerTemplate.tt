@@ -1,0 +1,35 @@
+<#@ template language="C#" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="AutoApi.SourceGenerator.Definition" #>
+<#@ import namespace="System.Linq" #>
+namespace AutoApi.Generated 
+{
+<# foreach(var c in Classes) { #>
+    public static class <#= c.ClassName #>Router
+    {
+        public static void Use<#= c.ClassName #>Router(this Microsoft.AspNetCore.Builder.IApplicationBuilder app)
+        {
+            var routeBuilder = new Microsoft.AspNetCore.Routing.RouteBuilder(app);
+            Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet(routeBuilder, "items", MapGetItems);
+            var router = routeBuilder.Build();
+            Microsoft.AspNetCore.Builder.RoutingBuilderExtensions.UseRouter(app, router);
+        }
+
+<# foreach(var method in c.Methods) { #>
+        public static async System.Threading.Tasks.Task Map<#= method.MethodName #>(Microsoft.AspNetCore.Http.HttpContext context)
+        {
+<# if(c.Constructors.Any()) { #>
+            // Get services
+<# }#>
+            var handler = new <#= c.NamespaceName #>.<#= c.ClassName #>();
+            var result = await handler.<#= method.MethodName #>(context.RequestAborted);
+            await System.Text.Json.JsonSerializer.SerializeAsync(context.Response.Body, result);
+        }
+<# } #>
+    }
+<# } #>
+}
+<#+
+    public IEnumerable<ClassDefinition> Classes { get; set; }
+#>

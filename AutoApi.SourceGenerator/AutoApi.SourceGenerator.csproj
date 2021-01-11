@@ -43,6 +43,11 @@
         <DesignTime>True</DesignTime>
         <DependentUpon>DomainFilterTemplate.tt</DependentUpon>
       </Compile>
+      <Compile Update="CodeGeneration\Api\ApiHandlerTemplate.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>ApiHandlerTemplate.tt</DependentUpon>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>
@@ -62,6 +67,18 @@
         <Generator>TextTemplatingFilePreprocessor</Generator>
         <LastGenOutput>DomainFilterTemplate.cs</LastGenOutput>
       </None>
+      <None Update="CodeGeneration\Api\ApiHandlerTemplate.tt">
+        <Generator>TextTemplatingFilePreprocessor</Generator>
+        <LastGenOutput>ApiHandlerTemplate.cs</LastGenOutput>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AutoApi.Core\AutoApi.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="CodeGeneration\TypedOptions" />
     </ItemGroup>
 
 </Project>

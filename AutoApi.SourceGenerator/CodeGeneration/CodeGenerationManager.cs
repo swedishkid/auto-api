@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AutoApi.SourceGenerator.CodeGeneration.Api;
 using AutoApi.SourceGenerator.Definition;
 
 namespace AutoApi.SourceGenerator.CodeGeneration
